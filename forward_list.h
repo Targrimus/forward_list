@@ -55,6 +55,11 @@ public:
 	forward_list_node();
 	forward_list_node(const value_type&);
 	forward_list_node(value_type &&);
+	~forward_list_node();
+
+	forward_list_node & operator=(const forward_list &);
+	forward_list_node & operator=(forward_list &&);
+
 
 	void setNext(node_pointer);
 	node_pointer getNext() const;
@@ -63,10 +68,9 @@ public:
 	void setData(value_type&&);
 	const value_type & getData() const;
 private:
-	value_type _data;
 	node_pointer _next;
+	value_type _data;
 };
-
 
 
 #endif /* FORWARD_LIST_H_ */
